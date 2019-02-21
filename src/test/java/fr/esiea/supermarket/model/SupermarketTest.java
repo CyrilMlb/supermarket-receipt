@@ -25,5 +25,7 @@ public class SupermarketTest {
 
         cart.addItemQuantity(apples, 1.5);
         cart.addItem(toothbrush);
+
+        receipt = teller.checksOutArticlesFrom(cart);
     }
 }
