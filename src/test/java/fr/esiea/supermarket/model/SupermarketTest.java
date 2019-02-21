@@ -28,10 +28,11 @@ public class SupermarketTest {
         Receipt receipt = teller.checksOutArticlesFrom(cart);
         Assertions.assertThat(receipt.getTotalPrice()).as("Price for 2.5kg of apples.").isEqualTo(2.5*1.99);
 
-        cart.addItemQuantity(toothbrush, 1.0);
-        cart.addItemQuantity(hairbrush, 2.0);
+        cart.addItemQuantity(toothbrush, 3.0);
+        cart.addItemQuantity(hairbrush, 5.0);
         cart.addItem(soap);
-        cart.addItemQuantity(bananas, 10.0);
+        cart.addItemQuantity(bananas, 1.0);
+        cart.addItemQuantity(bananas, 1.0);
         cart.addItemQuantity(cherries, 5.0);
 
         teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 3.0);
