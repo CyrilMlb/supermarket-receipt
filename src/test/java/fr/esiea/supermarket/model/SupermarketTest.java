@@ -21,7 +21,6 @@ public class SupermarketTest {
         Product cherries = new Product("cherries", ProductUnit.Kilo);
         catalog.addProduct(cherries, 3.9);
 
-
         ShoppingCart cart = new ShoppingCart();
         cart.addItemQuantity(apples, 2.5);
         Teller teller = new Teller(catalog);
@@ -36,14 +35,29 @@ public class SupermarketTest {
         cart.addItemQuantity(cherries, 5.0);
 
         teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 3.0);
-        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, soap, 3.5);
         teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, cherries, 10.0);
-        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, soap, 10.5);
         teller.addSpecialOffer(SpecialOfferType.TwoForAmount, bananas, 2.0);
-        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, soap, 2.5);
         teller.addSpecialOffer(SpecialOfferType.FiveForAmount, hairbrush, 5.0);
-        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, soap, 5.5);
         teller.addSpecialOffer(null, soap, 0.0);
+
+	    Product false3for2 = new Product("false3for2", ProductUnit.Kilo);
+        catalog.addProduct(false3for2, 1.0);
+        Product false10 = new Product("false10", ProductUnit.Kilo);
+        catalog.addProduct(false10, 1.0);
+        Product false2 = new Product("false2", ProductUnit.Kilo);
+        catalog.addProduct(false2, 1.0);
+        Product false5 = new Product("false5", ProductUnit.Kilo);
+        catalog.addProduct(false5, 1.0);
+
+        cart.addItem(false3for2);
+        cart.addItem(false10);
+        cart.addItem(false2);
+        cart.addItem(false5);
+
+        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, false3for2, 3.5);
+        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, false10, 10.5);
+        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, false2, 2.5);
+        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, false5, 5.5);
 
 		receipt = teller.checksOutArticlesFrom(cart);
     }
