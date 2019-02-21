@@ -1,2 +1,3 @@
-/home/cyrilmlb/supermarket-receipt/src/test/java/CyrilMlb/model/FakeCatalog.java
-/home/cyrilmlb/supermarket-receipt/src/test/java/CyrilMlb/model/SupermarketTest.java
+/home/cyrilmlb/supermarket-receipt/src/test/java/fr/esiea/supermarket/model/ReceiptItemTest.java
+/home/cyrilmlb/supermarket-receipt/src/test/java/fr/esiea/supermarket/model/FakeCatalog.java
+/home/cyrilmlb/supermarket-receipt/src/test/java/fr/esiea/supermarket/model/SupermarketTest.java

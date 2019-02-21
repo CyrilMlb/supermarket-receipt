@@ -1,4 +1,4 @@
-package CyrilMlb.model;
+package fr.esiea.supermarket.model;
 
 public class ProductQuantity {
     private final Product product;

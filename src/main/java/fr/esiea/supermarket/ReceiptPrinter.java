@@ -1,6 +1,6 @@
-package CyrilMlb;
+package fr.esiea.supermarket;
 
-import CyrilMlb.model.*;
+import fr.esiea.supermarket.model.*;
 import java.util.Locale;
 
 public class ReceiptPrinter {

@@ -1,6 +1,6 @@
-package CyrilMlb.model;
+package fr.esiea.supermarket.model;
 
-import CyrilMlb.model.*;
+import fr.esiea.supermarket.model.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +14,6 @@ public class ReceiptItemTest {
 	
 	private ReceiptItem receiptItem = new ReceiptItem(toothbrush, quantity, price, totalPrice);
 	private ReceiptItem receiptItem2 = new ReceiptItem(toothbrush, quantity, price, totalPrice);
-	
-	private ReceiptItem notReceiptItem = new ReceiptItem(toothbrush, quantity + 1.0, price, totalPrice);
 	
 	@Test
 	public void testReceiptItemGetPrice(){	
@@ -40,21 +38,22 @@ public class ReceiptItemTest {
 	@Test
 	public void testReceiptItemEqualsNULL(){
         Assertions.assertThat(receiptItem.equals(null)).isFalse();
-	}
-	
-	@Test
-	public void testReceiptItemEqualsReceiptItem(){
+        Assertions.assertThat(receiptItem.equals(toothbrush)).isFalse();
         Assertions.assertThat(receiptItem.equals(receiptItem)).isTrue();
-	}
 	
-	@Test
-	public void testReceiptItemEqualsClone(){
+
+		Product toothbrush2 = new Product("toothbrush2", ProductUnit.Each);
+		ReceiptItem notReceiptItemTotalPrice = new ReceiptItem(toothbrush, quantity, price, totalPrice - 0.1);
+		ReceiptItem notReceiptItemPrice = new ReceiptItem(toothbrush, quantity, price + 0.5, totalPrice);
+		ReceiptItem notReceiptItemProduct = new ReceiptItem(toothbrush2, quantity, price, totalPrice);
+		ReceiptItem notReceiptItemQuantity = new ReceiptItem(toothbrush, quantity + 1.0, price, totalPrice);
+
+	    Assertions.assertThat(receiptItem.equals(notReceiptItemPrice)).isFalse();
+	    Assertions.assertThat(receiptItem.equals(notReceiptItemProduct)).isFalse();
+	    Assertions.assertThat(receiptItem.equals(notReceiptItemQuantity)).isFalse();
+	    Assertions.assertThat(receiptItem.equals(notReceiptItemTotalPrice)).isFalse();
+
         Assertions.assertThat(receiptItem.equals(receiptItem2)).isTrue();
-	}	
-	
-	@Test
-	public void testReceiptItemEqualsDifferent(){
-        Assertions.assertThat(receiptItem.equals(notReceiptItem)).isFalse();
 	}
 	
 	@Test

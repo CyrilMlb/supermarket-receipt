@@ -1,4 +1,4 @@
-package CyrilMlb.model;
+package fr.esiea.supermarket.model;
 
 import java.util.ArrayList;
 import java.util.List;
