@@ -36,10 +36,14 @@ public class SupermarketTest {
         cart.addItemQuantity(cherries, 5.0);
 
         teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 3.0);
+        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, soap, 3.5);
         teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, cherries, 10.0);
+        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, soap, 10.5);
         teller.addSpecialOffer(SpecialOfferType.TwoForAmount, bananas, 2.0);
-        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, soap, 5.0);
-        teller.addSpecialOffer(null, hairbrush, 0.0);
+        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, soap, 2.5);
+        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, hairbrush, 5.0);
+        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, soap, 5.5);
+        teller.addSpecialOffer(null, soap, 0.0);
 
 		receipt = teller.checksOutArticlesFrom(cart);
     }
