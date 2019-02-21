@@ -26,13 +26,15 @@ public class ProductTest {
         Assertions.assertThat(toothbrush.equals(null)).isFalse();        
         Assertions.assertThat(toothbrush.equals(name)).isFalse();
         Assertions.assertThat(toothbrush.equals(toothbrush)).isTrue();
-        
+
 		Product toothbrush2 = new Product("toothbrush2", ProductUnit.Each);
 		Product toothbrush3 = new Product(name, ProductUnit.Kilo);
+		Product toothbrush4 = new Product(name, ProductUnit.Each);
 
         Assertions.assertThat(toothbrush.equals(soap)).isFalse();
         Assertions.assertThat(toothbrush.equals(toothbrush2)).isFalse();
         Assertions.assertThat(toothbrush.equals(toothbrush3)).isFalse();
+        Assertions.assertThat(toothbrush.equals(toothbrush4)).isTrue();
 	}
 	
 	@Test
