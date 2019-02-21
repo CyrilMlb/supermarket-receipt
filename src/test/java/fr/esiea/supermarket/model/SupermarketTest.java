@@ -60,5 +60,7 @@ public class SupermarketTest {
         teller.addSpecialOffer(SpecialOfferType.FiveForAmount, false5, 5.5);
 
 		receipt = teller.checksOutArticlesFrom(cart);
+
+        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(37.9);
     }
 }
