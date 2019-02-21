@@ -9,8 +9,6 @@ import java.util.Objects;
 public class ProductTest {
 	private String name = "toothbrush";
 	private Product toothbrush = new Product(name, ProductUnit.Each);
-	
-	private Product toothbrush2 = new Product(name, ProductUnit.Each);	
 	private Product soap = new Product("soap", ProductUnit.Each);
 	
 	@Test
@@ -24,23 +22,17 @@ public class ProductTest {
 	}
 	
 	@Test
-	public void testProductEqualsNULL(){
-        Assertions.assertThat(toothbrush.equals(null)).isFalse();
-	}
-	
-	@Test
-	public void testProductEqualsProduct(){
+	public void testProductEquals(){
+        Assertions.assertThat(toothbrush.equals(null)).isFalse();        
+        Assertions.assertThat(toothbrush.equals(name)).isFalse();
         Assertions.assertThat(toothbrush.equals(toothbrush)).isTrue();
-	}
-	
-	@Test
-	public void testProductEqualsClone(){
-        Assertions.assertThat(toothbrush.equals(toothbrush2)).isTrue();
-	}	
-	
-	@Test
-	public void testProductEqualsDifferent(){
+        
+		Product toothbrush2 = new Product("toothbrush2", ProductUnit.Each);
+		Product toothbrush3 = new Product(name, ProductUnit.Kilo);
+
         Assertions.assertThat(toothbrush.equals(soap)).isFalse();
+        Assertions.assertThat(toothbrush.equals(toothbrush2)).isFalse();
+        Assertions.assertThat(toothbrush.equals(toothbrush3)).isFalse();
 	}
 	
 	@Test

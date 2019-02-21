@@ -22,5 +22,8 @@ public class SupermarketTest {
         Receipt receipt = teller.checksOutArticlesFrom(cart);
 
         Assertions.assertThat(receipt.getTotalPrice()).as("Price for 2.5kg of apples.").isEqualTo(2.5*1.99);
+
+        cart.addItemQuantity(apples, 1.5);
+        cart.addItem(toothbrush);
     }
 }
