@@ -9,7 +9,7 @@
 
 ### Author
 
-4kaguru - Lorenzo LO CASALE
-CyrilMlb - Cyril MALHERBE
-korentinh2k - Korentin HARSCOUET DE KERAVEL
-robingmz - Robin GOMEZ
+* 4kaguru - Lorenzo LO CASALE
+* CyrilMlb - Cyril MALHERBE
+* korentinh2k - Korentin HARSCOUET DE KERAVEL
+* robingmz - Robin GOMEZ
