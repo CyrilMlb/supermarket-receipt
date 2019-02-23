@@ -1,6 +1,6 @@
 package fr.esiea.supermarket.model;
 
-public class Offer {
+abstract class Offer {
     SpecialOfferType offerType;
     private final Product product;
     double argument;
@@ -15,4 +15,5 @@ public class Offer {
         return this.product;
     }
 
+    public abstract Discount getSpecialDiscount(int quantity, double unitPrice);
 }
