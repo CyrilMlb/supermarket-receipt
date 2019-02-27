@@ -20,7 +20,9 @@ public class Teller {
     }
 
     public void addBundle(Bundle bundle){
-        this.bundles.add(bundle);
+        if(!bundle.isEmpty()){
+            this.bundles.add(bundle);
+        }
     }
 
     public Receipt checksOutArticlesFrom(ShoppingCart theCart) {

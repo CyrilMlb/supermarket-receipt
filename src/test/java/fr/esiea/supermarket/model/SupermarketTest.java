@@ -79,13 +79,20 @@ public class SupermarketTest {
         cart.addItemQuantity(hairbrush, 2.0);
 
         HashMap test = new HashMap<Product, Double>();
-        test.put(toothbrush, 1.0);
-        test.put(toothpaste, 1.0);
-        test.put(hairbrush, 1.0);
-
+        test.put(toothbrush, 5.0);
         Bundle bundle = new Bundle(test);
         teller.addBundle(bundle);
 
+        HashMap test2 = new HashMap<Product, Double>();
+        test2.put(toothbrush, 1.0);
+        test2.put(toothpaste, 1.0);
+        test2.put(hairbrush, 1.0);        
+        Bundle bundle2 = new Bundle(test2);
+        teller.addBundle(bundle2);
+
+        Bundle bundle3 = new Bundle(null);
+        teller.addBundle(bundle3);
+        
         Receipt receipt = teller.checksOutArticlesFrom(cart);
         Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(54.0);
     }

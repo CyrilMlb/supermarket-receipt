@@ -7,7 +7,10 @@ public class Bundle{
 	private HashMap<Product, Double> hmProducts;
 	
 	public Bundle(HashMap<Product, Double> hmProducts){
-		this.hmProducts = new HashMap<Product, Double>(hmProducts);
+		this.hmProducts = new HashMap<Product, Double>();
+		if(hmProducts != null){
+			this.hmProducts = new HashMap<Product, Double>(hmProducts);
+		}
 	}
 	
 	public HashMap<Product, Double> getProducts(){
