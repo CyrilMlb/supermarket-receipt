@@ -14,7 +14,7 @@ public class FakeCatalog implements SupermarketCatalog {
     }
 
     @Override
-    public double getUnitPrice(Product p) {
+    public double getUnitPrice(Product p){
         return this.prices.get(p.getName());
     }
 }
