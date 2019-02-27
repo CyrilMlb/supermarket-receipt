@@ -32,7 +32,6 @@ public class ReceiptTest {
 		receipt.addDiscount(dSoap);
 		testDiscounts.add(dSoap);
 		
-			
         Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(1.5);
         Assertions.assertThat(receipt.getItems().equals(testItems)).isTrue();
         Assertions.assertThat(receipt.getDiscounts().equals(testDiscounts)).isTrue();

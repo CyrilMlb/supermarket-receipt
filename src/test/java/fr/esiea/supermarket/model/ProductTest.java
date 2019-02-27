@@ -1,5 +1,3 @@
-package fr.esiea.supermarket.model;
-
 import fr.esiea.supermarket.model.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

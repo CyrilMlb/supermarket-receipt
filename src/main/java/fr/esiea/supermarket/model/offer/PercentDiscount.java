@@ -16,10 +16,6 @@ public class PercentDiscount implements Offer{
 		return this.product;
 	}
 	
-	public double getPercentAmount(){
-		return this.percentAmount;
-	}
-	
 	@Override
 	public Discount getSpecialDiscount(double quantity, double unitPrice){
 		int quantityAsInt = (int) quantity;

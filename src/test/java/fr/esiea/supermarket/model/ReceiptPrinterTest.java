@@ -1,6 +1,7 @@
 package fr.esiea.supermarket;
 
 import fr.esiea.supermarket.model.*;
+import fr.esiea.supermarket.model.offer.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +29,7 @@ public class ReceiptPrinterTest {
                 cart.addItemQuantity(soap, 1.0);
 
                 Teller teller = new Teller(catalog);
-                //teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 3.0);
+                teller.addSpecialOffer(new ThreeForTwo(toothbrush));
                 Receipt receipt = teller.checksOutArticlesFrom(cart);
 
                 Assertions.assertThat(rp2.printReceipt(receipt)).isNotBlank();

@@ -9,10 +9,12 @@ public class ThreeForTwo implements Offer{
 		this.product = product;
 	}
 	
+	@Override
 	public Product getProduct(){
 		return this.product;
 	}
 	
+	@Override
 	public Discount getSpecialDiscount(double quantity, double unitPrice){
 		int quantityAsInt = (int) quantity;
 		Discount discount = null;

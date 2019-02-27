@@ -1,8 +1,8 @@
 fr/esiea/supermarket/model/OfferTest.class
 fr/esiea/supermarket/ReceiptPrinterTest.class
+ProductTest.class
 fr/esiea/supermarket/model/FakeCatalog.class
 fr/esiea/supermarket/model/ReceiptTest.class
 fr/esiea/supermarket/model/SupermarketTest.class
 fr/esiea/supermarket/model/DiscountTest.class
 fr/esiea/supermarket/model/ReceiptItemTest.class
-fr/esiea/supermarket/model/ProductTest.class
