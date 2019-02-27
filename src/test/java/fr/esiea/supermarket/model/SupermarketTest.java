@@ -22,6 +22,9 @@ public class SupermarketTest {
         Product cherries = new Product("cherries", ProductUnit.Kilo);
         catalog.addProduct(cherries, 4.0);
 
+        Product none = new Product("none", ProductUnit.Kilo);
+        catalog.addProduct(none, 0.0);
+
         ShoppingCart cart = new ShoppingCart();
         cart.addItemQuantity(apples, 2.5);
         Teller teller = new Teller(catalog);
@@ -40,7 +43,11 @@ public class SupermarketTest {
         teller.addSpecialOffer(new PercentDiscount(cherries, 50));
         teller.addSpecialOffer(new XforAmount(2, bananas, 1.0));
         teller.addSpecialOffer(new XforAmount(5, hairbrush, 1.0));
+
         teller.addSpecialOffer(new XforAmount(5, apples, 1.0));
+        teller.addSpecialOffer(new ThreeForTwo(apples));
+        teller.addSpecialOffer(new PercentDiscount(none, 50.0));
+
         teller.addSpecialOffer(null);
 
 	    Product false3for2 = new Product("false3for2", ProductUnit.Kilo);
@@ -64,6 +71,6 @@ public class SupermarketTest {
 
 		receipt = teller.checksOutArticlesFrom(cart);
 
-        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(27.5);
+        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(25.5);
     }
 }
