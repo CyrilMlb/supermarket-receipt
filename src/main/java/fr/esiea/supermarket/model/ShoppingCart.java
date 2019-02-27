@@ -8,7 +8,6 @@ public class ShoppingCart {
     private final List<ProductQuantity> items = new ArrayList<>();
     Map<Product, Double> productQuantities = new HashMap<>();
 
-
     List<ProductQuantity> getItems() {
         return new ArrayList<>(items);
     }
@@ -20,7 +19,6 @@ public class ShoppingCart {
     Map<Product, Double> productQuantities() {
         return productQuantities;
     }
-
 
     public void addItemQuantity(Product product, double quantity) {
         items.add(new ProductQuantity(product, quantity));
@@ -36,18 +34,10 @@ public class ShoppingCart {
             double quantity = productQuantities.get(p);
             if (offers.containsKey(p)) {
                 Offer offer = offers.get(p);
-<<<<<<< HEAD
-                double unitPrice = catalog.getUnitPrice(p);
-
-                Discount discount = null;
-                discount = offer.getSpecialDiscount(quantity, unitPrice);
-=======
                 int quantityAsInt = (int) quantity;
                 double unitPrice = catalog.getUnitPrice(p);
-
                 Discount discount = null;
                 discount = offer.getSpecialDiscount(quantityAsInt, unitPrice);
->>>>>>> 3c58d3eeb3e4f1323cace2d4b1349706397ec7c6
                 if (discount != null)
                     receipt.addDiscount(discount);
             }
