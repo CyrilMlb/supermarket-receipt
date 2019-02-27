@@ -2,6 +2,7 @@
 /home/cyrilmlb/supermarket-receipt/src/main/java/fr/esiea/supermarket/model/ProductQuantity.java
 /home/cyrilmlb/supermarket-receipt/src/main/java/fr/esiea/supermarket/model/Receipt.java
 /home/cyrilmlb/supermarket-receipt/src/main/java/fr/esiea/supermarket/model/ShoppingCart.java
+/home/cyrilmlb/supermarket-receipt/src/main/java/fr/esiea/supermarket/model/offer/Bundle.java
 /home/cyrilmlb/supermarket-receipt/src/main/java/fr/esiea/supermarket/model/ProductUnit.java
 /home/cyrilmlb/supermarket-receipt/src/main/java/fr/esiea/supermarket/model/Discount.java
 /home/cyrilmlb/supermarket-receipt/src/main/java/fr/esiea/supermarket/model/Product.java

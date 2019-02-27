@@ -4,6 +4,8 @@ import fr.esiea.supermarket.model.offer.*;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
+import java.util.*;
+
 public class SupermarketTest {
 
     @Test
@@ -43,7 +45,8 @@ public class SupermarketTest {
         cart.addItemQuantity(apples, 1.0);
         cart.addItemQuantity(none, 0.0);
 
-        teller.addSpecialOffer(new ThreeForTwo(toothbrush));
+        teller.addSpecialOffer(new ThreeForTwo(toothbrush));        
+
         teller.addSpecialOffer(new PercentDiscount(cherries, 50));
         teller.addSpecialOffer(new XforAmount(2, bananas, 1.0));
         teller.addSpecialOffer(new XforAmount(5, hairbrush, 1.0));
@@ -54,27 +57,36 @@ public class SupermarketTest {
 
         teller.addSpecialOffer(null);
 
-	    Product false3for2 = new Product("false3for2", ProductUnit.Kilo);
-        catalog.addProduct(false3for2, 1.0);
-        Product false10 = new Product("false10", ProductUnit.Kilo);
-        catalog.addProduct(false10, 1.0);
-        Product false2 = new Product("false2", ProductUnit.Kilo);
-        catalog.addProduct(false2, 1.0);
-        Product false5 = new Product("false5", ProductUnit.Kilo);
-        catalog.addProduct(false5, 1.0);
-
-        cart.addItem(false3for2);
-        cart.addItem(false10);
-        cart.addItem(false2);
-        cart.addItem(false5);
-
-        /*teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, false3for2, 3.5);
-        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, false10, 10.5);
-        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, false2, 2.5);
-        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, false5, 5.5);*/
-
 		receipt = teller.checksOutArticlesFrom(cart);
+        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(53.5);
+    }
 
-        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(57.5);
+    @Test
+    public void testBundle(){
+        SupermarketCatalog catalog = new FakeCatalog();
+        Product toothbrush = new Product("toothbrush", ProductUnit.Each);
+        catalog.addProduct(toothbrush, 10.0);
+        Product toothpaste = new Product("toothpaste", ProductUnit.Each);
+        catalog.addProduct(toothpaste, 10.0);
+        Product hairbrush = new Product("hairbrush", ProductUnit.Each);
+        catalog.addProduct(hairbrush, 10.0);
+
+        ShoppingCart cart = new ShoppingCart();
+        Teller teller = new Teller(catalog);
+
+        cart.addItemQuantity(toothbrush, 2.0);
+        cart.addItemQuantity(toothpaste, 2.0);
+        cart.addItemQuantity(hairbrush, 2.0);
+
+        HashMap test = new HashMap<Product, Double>();
+        test.put(toothbrush, 1.0);
+        test.put(toothpaste, 1.0);
+        test.put(hairbrush, 1.0);
+
+        Bundle bundle = new Bundle(test);
+        teller.addBundle(bundle);
+
+        Receipt receipt = teller.checksOutArticlesFrom(cart);
+        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(54.0);
     }
 }

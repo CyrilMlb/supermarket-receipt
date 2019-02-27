@@ -7,6 +7,7 @@ public class Teller {
 
     private final SupermarketCatalog catalog;
     private Map<Product, Offer> offers = new HashMap<>();
+    private ArrayList<Bundle> bundles = new ArrayList<Bundle>();
 
     public Teller(SupermarketCatalog catalog) {
         this.catalog = catalog;
@@ -18,7 +19,13 @@ public class Teller {
         }
     }
 
+    public void addBundle(Bundle bundle){
+        this.bundles.add(bundle);
+    }
+
     public Receipt checksOutArticlesFrom(ShoppingCart theCart) {
+        theCart.handleBundles(this, this.bundles, this.catalog);
+
         Receipt receipt = new Receipt();
         List<ProductQuantity> productQuantities = theCart.getItems();
         for (ProductQuantity pq: productQuantities) {

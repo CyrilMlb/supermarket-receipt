@@ -1,4 +1,5 @@
 fr/esiea/supermarket/ReceiptPrinter.class
+fr/esiea/supermarket/model/offer/Bundle.class
 fr/esiea/supermarket/model/ProductUnit.class
 fr/esiea/supermarket/model/ReceiptItem.class
 fr/esiea/supermarket/model/ShoppingCart.class

@@ -14,9 +14,9 @@ public class XforAmount implements Offer{
 	}
 	
 	@Override
-	public Product getProduct(){
+    public Product getProduct(){
 		return this.product;
-	}
+    }
 
 	@Override
 	public Discount getSpecialDiscount(double quantity, double unitPrice){
