@@ -1,5 +1,6 @@
 package fr.esiea.supermarket.model;
 
+import fr.esiea.supermarket.model.offer.*;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
@@ -34,11 +35,11 @@ public class SupermarketTest {
         cart.addItemQuantity(bananas, 1.0);
         cart.addItemQuantity(cherries, 5.0);
 
-        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 3.0);
-        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, cherries, 10.0);
-        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, bananas, 2.0);
-        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, hairbrush, 5.0);
-        teller.addSpecialOffer(null, soap, 0.0);
+        teller.addSpecialOffer(new ThreeForTwo(toothbrush));
+        teller.addSpecialOffer(new PercentDiscount(cherries, 50));
+        teller.addSpecialOffer(new XforAmount(2, bananas, 1.0));
+        teller.addSpecialOffer(new XforAmount(5, hairbrush, 1.0));
+        teller.addSpecialOffer(null);
 
 	    Product false3for2 = new Product("false3for2", ProductUnit.Kilo);
         catalog.addProduct(false3for2, 1.0);
@@ -54,13 +55,13 @@ public class SupermarketTest {
         cart.addItem(false2);
         cart.addItem(false5);
 
-        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, false3for2, 3.5);
+        /*teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, false3for2, 3.5);
         teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, false10, 10.5);
         teller.addSpecialOffer(SpecialOfferType.TwoForAmount, false2, 2.5);
-        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, false5, 5.5);
+        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, false5, 5.5);*/
 
 		receipt = teller.checksOutArticlesFrom(cart);
 
-        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(37.9);
+        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(39.705);
     }
 }

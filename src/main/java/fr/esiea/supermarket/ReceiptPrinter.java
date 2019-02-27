@@ -1,6 +1,8 @@
 package fr.esiea.supermarket;
 
 import fr.esiea.supermarket.model.*;
+import fr.esiea.supermarket.model.offer.*;
+
 import java.util.Locale;
 
 public class ReceiptPrinter {
