@@ -27,10 +27,7 @@ public class XforAmount implements Offer{
 	        double discountN = unitPrice * quantity - total;
             discount = new Discount(this.product, this.x + " for " + amount + "$", discountN);
         }
-        else{
-			new Discount(this.product, "No Discount", 0.0);
-        }
-
+        
 		return discount;
 	}
 }

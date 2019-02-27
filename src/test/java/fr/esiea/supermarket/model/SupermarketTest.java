@@ -11,6 +11,8 @@ public class SupermarketTest {
         SupermarketCatalog catalog = new FakeCatalog();
         Product toothbrush = new Product("toothbrush", ProductUnit.Each);
         catalog.addProduct(toothbrush, 1.0);
+        Product toothpaste = new Product("toothpaste", ProductUnit.Kilo);
+        catalog.addProduct(toothpaste, 15.0);
         Product hairbrush = new Product("hairbrush", ProductUnit.Each);
         catalog.addProduct(hairbrush, 3.5);
         Product soap = new Product("soap", ProductUnit.Each);
@@ -23,7 +25,7 @@ public class SupermarketTest {
         catalog.addProduct(cherries, 4.0);
 
         Product none = new Product("none", ProductUnit.Kilo);
-        catalog.addProduct(none, 0.0);
+        catalog.addProduct(none, 100.0);
 
         ShoppingCart cart = new ShoppingCart();
         cart.addItemQuantity(apples, 2.5);
@@ -32,12 +34,14 @@ public class SupermarketTest {
         Assertions.assertThat(receipt.getTotalPrice()).as("Price for 2.5kg of apples.").isEqualTo(2.5*2.0);
 
         cart.addItemQuantity(toothbrush, 3.0);
+        cart.addItemQuantity(toothpaste, 2.0);
         cart.addItemQuantity(hairbrush, 5.0);
         cart.addItem(soap);
         cart.addItemQuantity(bananas, 1.0);
         cart.addItemQuantity(bananas, 1.0);
         cart.addItemQuantity(cherries, 5.0);
         cart.addItemQuantity(apples, 1.0);
+        cart.addItemQuantity(none, 0.0);
 
         teller.addSpecialOffer(new ThreeForTwo(toothbrush));
         teller.addSpecialOffer(new PercentDiscount(cherries, 50));
@@ -45,7 +49,7 @@ public class SupermarketTest {
         teller.addSpecialOffer(new XforAmount(5, hairbrush, 1.0));
 
         teller.addSpecialOffer(new XforAmount(5, apples, 1.0));
-        teller.addSpecialOffer(new ThreeForTwo(apples));
+        teller.addSpecialOffer(new ThreeForTwo(toothpaste));
         teller.addSpecialOffer(new PercentDiscount(none, 50.0));
 
         teller.addSpecialOffer(null);
@@ -71,6 +75,6 @@ public class SupermarketTest {
 
 		receipt = teller.checksOutArticlesFrom(cart);
 
-        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(25.5);
+        Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(57.5);
     }
 }

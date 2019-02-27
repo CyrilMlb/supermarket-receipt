@@ -38,7 +38,7 @@ public class ShoppingCart {
                 double unitPrice = catalog.getUnitPrice(p);
                 Discount discount = null;
                 discount = offer.getSpecialDiscount(quantityAsInt, unitPrice);
-                if (discount != null)
+                if(discount!=null)
                     receipt.addDiscount(discount);
             }
         }
