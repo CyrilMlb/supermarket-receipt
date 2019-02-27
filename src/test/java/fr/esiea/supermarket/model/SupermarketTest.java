@@ -70,6 +70,8 @@ public class SupermarketTest {
         catalog.addProduct(toothpaste, 10.0);
         Product hairbrush = new Product("hairbrush", ProductUnit.Each);
         catalog.addProduct(hairbrush, 10.0);
+        Product soap = new Product("soap", ProductUnit.Each);
+        catalog.addProduct(soap, 10.0);
 
         ShoppingCart cart = new ShoppingCart();
         Teller teller = new Teller(catalog);
@@ -80,6 +82,7 @@ public class SupermarketTest {
 
         HashMap test = new HashMap<Product, Double>();
         test.put(toothbrush, 5.0);
+        test.put(soap, 5.0);
         Bundle bundle = new Bundle(test);
         teller.addBundle(bundle);
 
@@ -92,7 +95,7 @@ public class SupermarketTest {
 
         Bundle bundle3 = new Bundle(null);
         teller.addBundle(bundle3);
-        
+
         Receipt receipt = teller.checksOutArticlesFrom(cart);
         Assertions.assertThat(receipt.getTotalPrice()).isEqualTo(54.0);
     }
